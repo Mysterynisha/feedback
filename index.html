@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feedback Form</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+        }
+
+       
+
+        #feedback {
+            height: 320px;
+            width: 400px;
+            border: 2px solid red;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            overflow: scroll;
+            color: white;
+            font-weight: bolder;
+            
+        }
+
+       
+        #feedbackForm {
+            height: 300px;
+            width: 400px;
+            border: 2px solid red;
+            overflow: auto;
+            margin-top: 65px;
+            padding: 15px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="feedbackForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <br><br>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" rows="6" required></textarea>
+            <br><br>
+            <button id="btn">Submit</button>
+        </form>
+
+        <div id="feedbackContainer">
+            <h2>Feedback</h2>
+            <div id="feedback">
+              
+            </div>
+        </div>
+
+
+    <script >
+
+        document.getElementsByTagName("button")[0].addEventListener("click", (e) => {
+            e.preventDefault();
+            let name = document.getElementById("name").value;
+           // console.log(name);
+        
+            let gmail = document.getElementById("email").value;
+            //console.log(gmail);
+        
+            let comment = document.getElementById("comments").value;
+            //console.log(comment);
+
+            let node=document.createElement("div");
+            let textnode=document.createTextNode(name);
+            node.appendChild(textnode);
+
+           
+            let node1=document.createElement("div");
+            let text=document.createTextNode(gmail);
+            node1.appendChild(text);
+
+            
+            let node2=document.createElement("div");
+            let tet=document.createTextNode(comment);
+            node2.appendChild(tet);
+
+            let node3=document.createElement("div");
+              node3.appendChild(node);
+              node3.appendChild(node1);
+              node3.appendChild(node2);
+            document.getElementById("feedback").appendChild(node3);
+             
+            node3.style.backgroundColor="#B03A2E";
+            node3.style.borderRadius="15px";
+            node3.style.margin="4px";
+            node3.style.padding="10px";
+           
+
+
+
+        });
+        
+                
+       
+              
+
+
+    
+        
+    </script>
+</body>
+</html>
